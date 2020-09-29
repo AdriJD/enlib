@@ -47,7 +47,7 @@ def reproject(map, shape, wcs, omap=None, order=3, border="zero", rot=None,
 	# Prepare to handle wrapping in the input map
 	nphi  = utils.nint(360/np.abs(isub_wcs.wcs.cdelt[0]))
 	nphi *= (nphi+isub_shape[-1]-1)//nphi
-	if wrap is "auto": wrap = np.array([0,nphi])
+	if wrap == "auto": wrap = np.array([0,nphi])
 	else: wrap = np.zeros(2,int)+wrap*subsample
 	# Loop through chunks in our output map, collecting the corresponding
 	# input map pixels. The variable convention here is that the first

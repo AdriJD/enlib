@@ -87,7 +87,7 @@ class DataField:
 		return self
 	def __setattr__(self, name, val):
 		# Enforce contiguous data if requested
-		if name is "data" and self.force_contiguous:
+		if name == "data" and self.force_contiguous:
 			val = np.ascontiguousarray(val)
 		if name in ["dets","samples","dets_orig","samples_orig"] and val is not None:
 			val = np.asarray(val)
